@@ -2,6 +2,7 @@ package com.studydemo;
 
 import android.app.Application;
 
+import com.camera.HeadImagePackage;
 import com.facebook.react.ReactApplication;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.beefe.picker.PickerViewPackage;
@@ -40,7 +41,8 @@ public class MainApplication extends Application implements ReactApplication {
             new UpdatePackage(),
               new UmengReactPackage(),
               //在应用中注册这个包管理器
-              new TestReactPackage()
+              new TestReactPackage(),
+              new HeadImagePackage()
       );
     }
   };
