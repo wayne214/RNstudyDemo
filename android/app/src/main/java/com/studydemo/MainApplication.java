@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.camera.HeadImagePackage;
 import com.facebook.react.ReactApplication;
+import com.rnfs.RNFSPackage;
+import com.react.MyHeadLessReactPackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.beefe.picker.PickerViewPackage;
 import cn.reactnative.modules.update.UpdatePackage;
@@ -13,6 +15,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.test.TestReactPackage;
+import com.timer.MyTimerReactPackage;
 import com.umeng.UmengReactPackage;
 
 import cn.reactnative.modules.update.UpdateContext;
@@ -36,13 +39,16 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFSPackage(),
             new PickerPackage(),
             new PickerViewPackage(),
             new UpdatePackage(),
               new UmengReactPackage(),
               //在应用中注册这个包管理器
               new TestReactPackage(),
-              new HeadImagePackage()
+              new HeadImagePackage(),
+              new MyHeadLessReactPackage(),
+              new MyTimerReactPackage()
       );
     }
   };

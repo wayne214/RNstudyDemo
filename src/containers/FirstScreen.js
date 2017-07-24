@@ -7,11 +7,17 @@ import {
     Text,
     View,
     Image,
-    Button
+    Button,
+    DeviceEventEmitter,
+    AppState
 } from 'react-native';
 import ToastAndroid2 from '../utils/toastAndroid2'
+import HeadLessService from '../utils/headLessService'
 import umengAnalysis from '../utils/umengAnalysis';
 import Picker from 'react-native-picker';
+import BackgroundService from '../utils/backgroundService';
+
+BackgroundService.registerNewPostsListener();
 
 export  default class meScreen extends Component {
     static navigationOptions = {
@@ -24,8 +30,23 @@ export  default class meScreen extends Component {
             />
         ),
     };
-    componentWillUnmount(){
-        umengAnalysis.onPageEnd('ajodfijao');
+    componentWillMount() {
+        AppState.addEventListener('change', this.handleAppStateChange);
+        DeviceEventEmitter.addListener('willShow',(value) => {
+            alert(value);
+        })
+    }
+    componentWillUnmount() {
+        AppState.removeEventListener('change', this.handleAppStateChange);
+    }
+    handleAppStateChange(newState) {
+        if (newState === 'active') {
+            // BackgroundService.stopNewPostsListener();
+            // BackgroundService.startNewPostsListener({key: '!!!!!!!'});
+            // HeadLessService.schedule('大家哦二级');
+        } else if (newState === 'background') {
+            // BackgroundService.startNewPostsListener({key: '!!!!!!!'});
+        }
     }
     createDateData() {
         const date = [];
@@ -109,9 +130,9 @@ export  default class meScreen extends Component {
                 <Text>List of all contacts</Text>
                 <Button
                      // onPress={() => navigate('Chat', {user: 'Jane'})} //Passing params
-                    // onPress={() => ToastAndroid2.show('ceshiyixaiis',ToastAndroid2.SHORT)} //Passing params
+                    onPress={() => ToastAndroid2.show('ceshiyixaiis',ToastAndroid2.SHORT)} //Passing params
                     // onPress={() => umengAnalysis.toast('umengAnalysis')} //Passing params
-                    onPress={() => this.showDatePicker()} //Passing params
+                    // onPress={() => this.showDatePicker()} //Passing params
                     title="Chat with Jane"
                 />
             </View>
