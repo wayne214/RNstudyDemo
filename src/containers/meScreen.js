@@ -11,9 +11,6 @@ import {
 } from 'react-native';
 
 
-import RNFS from 'react-native-fs'; // 导入
-
-
 import ReadAndWriteFileUtil from '../utils/readAndWriteFileUtil';
 
 export  default class meScreen extends Component {
@@ -35,6 +32,8 @@ export  default class meScreen extends Component {
         this.readDir = this.readDir.bind(this);
         this.deleteFile = this.deleteFile.bind(this);
         this.read = this.read.bind(this);
+        this.mkdir = this.mkdir.bind(this);
+        this.copyFile = this.copyFile.bind(this);
     }
     // 写内容到文件中
     writeFile() {
@@ -63,33 +62,17 @@ export  default class meScreen extends Component {
     }
     // 读取目录
     readDir() {
-        // RNFS.readDir(RNFS.DocumentDirectoryPath) // On Android, use "RNFS.DocumentDirectoryPath" (MainBundlePath is not defined)
-        //     .then((result) => {
-        //         console.log('GOT RESULT', result);
-        //         let index = result.length - 1;
-        //         // stat the first file
-        //         return Promise.all([RNFS.stat(result[index].path), result[index].path]);
-        //     })
-        //     .then((statResult) => {
-        //     console.log('statResult',statResult,statResult[0].isFile());
-        //         if (statResult[0].isFile()) {
-        //             // if we have a file, read it
-        //             return RNFS.readFile(statResult[1], 'utf8');
-        //         }
-        //
-        //         return 'no file';
-        //     })
-        //     .then((contents) => {
-        //         // log the file contents
-        //         console.log(contents);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err.message, err.code);
-        //     });
+
     }
     // 删除文件
     deleteFile() {
         ReadAndWriteFileUtil.deleteFile();
+    }
+    copyFile() {
+        ReadAndWriteFileUtil.copyFile();
+    }
+    mkdir() {
+        ReadAndWriteFileUtil.mkDir();
     }
     render() {
         const { navigate } = this.props.navigation;
@@ -134,6 +117,20 @@ export  default class meScreen extends Component {
                         // onPress={() => navigate('Chat', {user: 'Jane'})} //Passing params
                         onPress={() => {this.deleteFile()}} //Passing params
                         title="Delete File"
+                    />
+                </View>
+                <View style={{marginTop: 20}}>
+                    <Button
+                        // onPress={() => navigate('Chat', {user: 'Jane'})} //Passing params
+                        onPress={() => {this.mkdir()}} //Passing params
+                        title="MA DIR"
+                    />
+                </View>
+                <View style={{marginTop: 20}}>
+                    <Button
+                        // onPress={() => navigate('Chat', {user: 'Jane'})} //Passing params
+                        onPress={() => {this.copyFile()}} //Passing params
+                        title="Copy File"
                     />
                 </View>
             </View>

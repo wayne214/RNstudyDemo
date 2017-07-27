@@ -5,7 +5,8 @@ import RNFS from 'react-native-fs'; // 导入
 import moment from 'moment';
 
 var currentData = moment(new Date()).format('YYYY-MM-DD hh:mm:ss');
-var path = RNFS.ExternalDirectoryPath + '/text.txt'; // 文件路径
+var path = RNFS.DocumentDirectoryPath + '/text.txt'; // 文件路径
+const destPath = RNFS.CachesDirectoryPath + '/abc/text.txt' ;
 
 let userID = '';
 let userNAME = '';
@@ -57,7 +58,7 @@ class readAndWriteFileUtil {
     }
     // 读取文件
     readFile(successCallback, failCallback) {
-        RNFS.readFile(path,'utf8')
+        RNFS.readFile(destPath,'utf8')
             .then((result) => {
                 successCallback(result);
             })
@@ -93,7 +94,7 @@ class readAndWriteFileUtil {
     }
     // 删除文件
     deleteFile() {
-        RNFS.unlink(path)
+        RNFS.unlink(destPath)
             .then(() => {
                 console.log('FILE DELETED');
             })
@@ -102,16 +103,53 @@ class readAndWriteFileUtil {
             })
     }
     getPath() {
-        return 'file://'.concat(path);
+        return 'file://'.concat(destPath);
     }
     // 判断文件路径是否存在
     isFilePathExists(successCallback) {
-         RNFS.exists(path)
+         RNFS.exists(destPath)
             .then((value) => {
                 successCallback(value);
             })
             .catch((err) => {
                 console.log(err.message);
+            });
+    }
+    // 复制文件
+    copyFile() {
+        RNFS.copyFile(path, destPath)
+            .then(() => {
+                console.log('COPY FILE SUCCESSED');
+            })
+            .catch((err) => {
+                console.log('copyFile Failed', err.message);
+            });
+
+    }
+    // 移动文件
+    moveFile() {
+        RNFS.moveFile(path,destPath)
+            .then(() => {
+                console.log('moveFIle Success');
+            })
+            .catch((err) => {
+                console.log('moveFile failed', err);
+            });
+    }
+    /*创建目录*/
+    mkDir() {
+        // const path = RNFS.MainBundlePath + 'abc/test.txt' ;
+
+        const options = {
+            NSURLIsExcludedFromBackupKey: true, // iOS only
+        };
+
+        return RNFS.mkdir(destPath, options)
+            .then((res) => {
+                console.log('MKDIR success');
+
+            }).catch((err) => {
+                console.log('err', err);
             });
     }
 }
