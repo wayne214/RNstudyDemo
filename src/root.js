@@ -10,6 +10,7 @@ import Mine from '../src/containers/mine'
 import ChatScreen from '../src/containers/ChatScreen'
 import ChatScreen2 from '../src/containers/ChatScreen2'
 import MeScreen from '../src/containers/meScreen'
+import FlatlistScreen from '../src/containers/test/FlatlistDemo';
 import RecentChatsScreen from '../src/containers/FirstScreen'
 import CongratulationsScreen from '../src/containers/congratulations'
 import { StackNavigator, TabNavigator } from 'react-navigation';
@@ -26,7 +27,7 @@ const MainScreenNavigator = TabNavigator({
         screen: Mine,
     },
     All: {
-        screen: MeScreen,
+        screen: FlatlistScreen,
     },
 }, {
     animationEnabled: false, // 切换页面时不显示动画
