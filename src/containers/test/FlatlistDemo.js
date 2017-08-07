@@ -29,6 +29,7 @@ import {
  *
  *
  * */
+import CheckUtil from '../../utils/checkObjIsEmpty';
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 const styles = StyleSheet.create({
     container: {
@@ -73,6 +74,9 @@ class FlatlistDemo extends Component{
         style: PropTypes.object,
     };
     componentDidMount(){
+        const ff1 = CheckUtil.isEmptyString('');
+        const ff2 = CheckUtil.isEmpty(null);
+        console.log('tiaoshi', ff1, ff2, typeof (null));
         this.fetchData();
     }
     //网络请求
