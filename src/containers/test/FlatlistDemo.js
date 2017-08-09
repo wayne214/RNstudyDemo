@@ -197,7 +197,7 @@ class FlatlistDemo extends Component{
                     onViewableItemsChanged={(info) => {
                         //    alert("可见不可见触发");
                     } }
-                    removeClippedSubviews={true}
+                    removeClippedSubviews={false}
                 />
             </View>
         );

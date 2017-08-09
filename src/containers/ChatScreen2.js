@@ -11,8 +11,8 @@ import Password from 'react-native-password-pay';
 
 export  default class ChatScreen2 extends Component {
     static navigationOptions = ({ navigation}) => ({
-        title: `Chat with ${navigation.state.params.user}`,
-        headerLeft: null
+        // title: `Chat with ${navigation.state.params.user}`,
+        // headerLeft: null
     });
 
     render() {

@@ -129,8 +129,11 @@ export  default class meScreen extends Component {
             <View>
                 <Text>List of all contacts</Text>
                 <Button
-                     // onPress={() => navigate('Chat', {user: 'Jane'})} //Passing params
-                    onPress={() => ToastAndroid2.show('ceshiyixaiis',ToastAndroid2.SHORT)} //Passing params
+                     onPress={() => navigate('Chat', {user: 'Jane',callback: (data) => {
+                         console.log('接收的数据是: ',data)
+                     }, isBack: true}
+                     )} //Passing params
+                    // onPress={() => ToastAndroid2.show('ceshiyixaiis',ToastAndroid2.SHORT)} //Passing params
                     // onPress={() => umengAnalysis.toast('umengAnalysis')} //Passing params
                     // onPress={() => this.showDatePicker()} //Passing params
                     title="Chat with Jane"
