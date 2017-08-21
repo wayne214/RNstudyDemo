@@ -129,7 +129,7 @@ export  default class meScreen extends Component {
             <View>
                 <Text>List of all contacts</Text>
                 <Button
-                     onPress={() => navigate('Chat', {user: 'Jane',callback: (data) => {
+                     onPress={() => navigate('CityList', {user: 'Jane',callback: (data) => {
                          console.log('接收的数据是: ',data)
                      }, isBack: true}
                      )} //Passing params

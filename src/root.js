@@ -11,6 +11,7 @@ import ChatScreen from '../src/containers/ChatScreen'
 import ChatScreen2 from '../src/containers/ChatScreen2'
 import MeScreen from '../src/containers/meScreen'
 import FlatlistScreen from '../src/containers/test/FlatlistDemo';
+import CityList from '../src/containers/test/cityList';
 import RecentChatsScreen from '../src/containers/FirstScreen'
 import CongratulationsScreen from '../src/containers/congratulations'
 import { StackNavigator, TabNavigator } from 'react-navigation';
@@ -61,6 +62,7 @@ const SimpleApp = StackNavigator({
         }
     },
     Congratulations: { screen: CongratulationsScreen },
+    CityList: {screen: CityList},
 });
 
 AppRegistry.registerComponent('studyDemo', () => SimpleApp);
