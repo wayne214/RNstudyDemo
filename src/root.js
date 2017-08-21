@@ -14,12 +14,16 @@ import FlatlistScreen from '../src/containers/test/FlatlistDemo';
 import CityList from '../src/containers/test/cityList';
 import RecentChatsScreen from '../src/containers/FirstScreen'
 import CongratulationsScreen from '../src/containers/congratulations'
+import VideoScreen from '../src/containers/test/videoTest';
+import VideoListScreen from '../src/containers/test/videoList';
+import VideoPlayPage from './containers/test/VideoPlayPage';
+import VideoDetailPage from './containers/test/VideoDetailPage';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 
 const MainScreenNavigator = TabNavigator({
     Recent: {
-        screen: RecentChatsScreen,
+        screen: VideoScreen,
     },
     Resource: {
         screen: Home,
@@ -63,6 +67,8 @@ const SimpleApp = StackNavigator({
     },
     Congratulations: { screen: CongratulationsScreen },
     CityList: {screen: CityList},
+    VideoPlayPage: {screen: VideoPlayPage},
+    VideoDetailPage: {screen: VideoDetailPage},
 });
 
 AppRegistry.registerComponent('studyDemo', () => SimpleApp);

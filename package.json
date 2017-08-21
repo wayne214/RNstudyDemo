@@ -13,9 +13,11 @@
     "react-native-checkbox": "^1.1.0",
     "react-native-fs": "^2.3.3",
     "react-native-image-crop-picker": "^0.14.0",
+    "react-native-parallax-scroll-view": "^0.19.0",
     "react-native-password-pay": "^1.0.1",
     "react-native-picker": "^4.0.19",
     "react-native-update": "^4.0.5",
+    "react-native-video": "^2.0.0",
     "react-navigation": "^1.0.0-beta.11"
   },
   "devDependencies": {

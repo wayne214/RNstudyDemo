@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.camera.HeadImagePackage;
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
 import com.rnfs.RNFSPackage;
 import com.react.MyHeadLessReactPackage;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
@@ -39,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactVideoPackage(),
             new RNFSPackage(),
             new PickerPackage(),
             new PickerViewPackage(),
