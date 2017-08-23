@@ -6,7 +6,6 @@ import {
     AppRegistry,
 } from 'react-native';
 import Home from '../src/containers/home'
-import Mine from '../src/containers/mine'
 import ChatScreen from '../src/containers/ChatScreen'
 import ChatScreen2 from '../src/containers/ChatScreen2'
 import MeScreen from '../src/containers/meScreen'
@@ -29,7 +28,7 @@ const MainScreenNavigator = TabNavigator({
         screen: Home,
     },
     Other: {
-        screen: Mine,
+        screen: CityList,
     },
     All: {
         screen: MeScreen,
